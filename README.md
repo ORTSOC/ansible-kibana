@@ -1,2 +1,2 @@
 # ansible-kibana
-ORTSOC Infra Playbook: Kibana
+ORTSOC Infra Role: Kibana
