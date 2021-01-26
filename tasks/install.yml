@@ -3,7 +3,7 @@
 - name: download kibana
   get_url:
     url: https://artifacts.elastic.co/downloads/kibana/kibana-7.10.2-amd64.deb
-    dest: "{{ elasticsearch_download_path }}"
+    dest: "{{ kibana_download_path }}"
     checksum: sha512:https://artifacts.elastic.co/downloads/kibana/kibana-7.10.2-amd64.deb.sha512
 
 - name: install kibana
