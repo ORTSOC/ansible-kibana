@@ -1,12 +1,15 @@
 ---
+# Replacing default kibana.yml with updated file
 
-- name: configure vm.max_map_count
-  sysctl:
-    name: vm.max_map_count
-    value: "262144"
+- name: generate kibana config
+  ansible.builtin.template:
+    src: kibana.yml
+    dest: /etc/kibana/kibana.yml
 
-- name: enable service
-  systemd:
+# Starting Kibana
+
+- name: Starting Kibana
+  service:
     name: kibana
-    enabled: yes
     state: started
+    enabled: yes
