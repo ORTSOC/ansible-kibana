@@ -9,7 +9,7 @@
 # Starting Kibana
 
 - name: Starting Kibana
-  service:
+  systemd:
     name: kibana
     state: started
     enabled: yes
