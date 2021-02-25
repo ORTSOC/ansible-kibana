@@ -5,9 +5,14 @@ server_port: 5601
 server_host: 0.0.0.0
 server_name: ortsoc-kibana
 
-## elasticsearch hosts
-elasticsearch_host: http://localhost:9200
 
 ## xpack security settings
 
-xpack_security_encryptionKey:
+xpack.encryptedSavedObjects.encryptionKey: asdf
+elasticsearch.hosts: ["http://localhost:9200"] # this needs to have all of the master eligible elasticsearch nodes
+
+{% for host in groups["elasticsearch"] %}
+{% if hostvars[host].master_eligible %}
+  - {{ host }}
+{% endif %}
+{% endfor %}
