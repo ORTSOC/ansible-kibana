@@ -3,13 +3,9 @@
 
 - name: generate kibana config
   ansible.builtin.template:
-    src: kibana.yml
+    src: kibana.yml.j2
     dest: /etc/kibana/kibana.yml
-
-# Starting Kibana
-
-- name: Starting Kibana
-  systemd:
-    name: kibana
-    state: started
-    enabled: yes
+    owner: root
+    group: kibana
+    mode: 0644
+  notify: restart kibana
