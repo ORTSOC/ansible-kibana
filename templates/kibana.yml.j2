@@ -11,6 +11,7 @@ server_name: ortsoc-kibana
 xpack.encryptedSavedObjects.encryptionKey: asdf
 elasticsearch.hosts: ["http://localhost:9200"] # this needs to have all of the master eligible elasticsearch nodes
 
+http//:
 {% for host in groups["elasticsearch"] %}
 {% if hostvars[host].master_eligible %}
   - {{ host }}
